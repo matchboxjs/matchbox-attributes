@@ -1,0 +1,28 @@
+{
+  "name": "matchbox-attributes",
+  "version": "0.1.0",
+  "description": "Define custom attribute getters and setters on any class",
+  "main": "index.js",
+  "dependencies": {
+    "camelcase": "^1.2.1",
+    "matchbox-util": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matchboxjs/matchbox-attributes.git"
+  },
+  "keywords": [
+    "matchbox",
+    "attributes"
+  ],
+  "author": "tunderdomb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matchboxjs/matchbox-attributes/issues"
+  },
+  "homepage": "https://github.com/matchboxjs/matchbox-attributes#readme"
+}
