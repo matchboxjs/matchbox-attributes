@@ -27,22 +27,32 @@ function Attribute (def) {
  * Note: that it fails to detect whole number floats as float.
  * */
 Attribute.getType = function (def) {
-  if (typeof def == "undefined") {
-    return "string"
+  if (typeof def == "undefined" || def == null) {
+    return null
   }
+
+  var value
   if (Attribute.isPrimitive(def)) {
-    switch (typeof def) {
-      case "number":
-        // note: it fails for 1.0
-        if (def === +def && def !== (def | 0)) {
-          return "float"
-        }
+    value = def
+  }
+  else if (typeof def.type == "string") {
+    return def.type
+  }
+  else if (def.hasOwnProperty("default")) {
+    value = def.default
+    if (typeof value == "object") {
+      return "json"
     }
-    return typeof def
   }
-  else if(def != null && typeof def.type == "string") {
-    return typeof def.type
+
+  switch (typeof value) {
+    case "number":
+      // note: it fails for 1.0
+      if (value === +value && value !== (value | 0)) {
+        return "float"
+      }
   }
+  return typeof value
 }
 
 /**

@@ -67,4 +67,37 @@ describe("attributes", function () {
       assert.equal(test.testProperty, "test")
     })
   })
+
+  describe("getType", function () {
+    it("unknown", function () {
+      assert.isNull(Attribute.getType(null))
+      assert.isNull(Attribute.getType())
+    })
+    it("boolean", function () {
+      assert.equal(Attribute.getType(false), "boolean")
+      assert.equal(Attribute.getType(true), "boolean")
+      assert.equal(Attribute.getType({type: "boolean"}), "boolean")
+      assert.equal(Attribute.getType({'default': false}), "boolean")
+      assert.equal(Attribute.getType({'default': true}), "boolean")
+    })
+    it("string", function () {
+      assert.equal(Attribute.getType(""), "string")
+      assert.equal(Attribute.getType({type: "string"}), "string")
+      assert.equal(Attribute.getType({'default': ""}), "string")
+    })
+    it("number", function () {
+      assert.equal(Attribute.getType(0), "number")
+      assert.equal(Attribute.getType({type: "number"}), "number")
+      assert.equal(Attribute.getType({'default': 0}), "number")
+    })
+    it("float", function () {
+      assert.equal(Attribute.getType(1.1), "float")
+      assert.equal(Attribute.getType({type: "float"}), "float")
+      assert.equal(Attribute.getType({'default': 1.1}), "float")
+    })
+    it("json", function () {
+      assert.equal(Attribute.getType({type: "json"}), "json")
+      assert.equal(Attribute.getType({'default': {}}), "json")
+    })
+  })
 })
