@@ -1,15 +1,21 @@
 {
   "name": "matchbox-attributes",
-  "version": "0.1.0",
-  "description": "Define custom attribute getters and setters on any class",
+  "version": "0.2.0",
+  "description": "General attribute/type definition utility",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
     "camelcase": "^1.2.1",
-    "matchbox-util": "^0.1.0"
+    "matchbox-factory": "^0.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,7 +23,9 @@
   },
   "keywords": [
     "matchbox",
-    "attributes"
+    "attribute",
+    "type",
+    "model"
   ],
   "author": "tunderdomb",
   "license": "MIT",
