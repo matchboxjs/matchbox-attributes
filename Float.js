@@ -13,5 +13,5 @@ inherit(FloatAttribute, Attribute)
 FloatAttribute.prototype.parseValue = function(serializedValue){
   return serializedValue == null
       ? null
-      : parseInt(serializedValue, 10)
+      : parseFloat(serializedValue)
 }
