@@ -175,17 +175,15 @@ Attribute.prototype.get = function( context ){
  * If the value provided triggers a removal, it removes the attribute from the context.
  * */
 Attribute.prototype.set = function( context, parsedValue, callOnchange ){
-  var previousValue
+  var previousValue = this.parseValue(this.getFromContext(context, this.prefixedName))
   var newValue
 
+  // setting to the same value
+  if( previousValue === parsedValue ){
+    return
+  }
+
   if (this.hasOnContext(context, this.prefixedName)) {
-    previousValue = this.parseValue(this.getFromContext(context, this.prefixedName))
-
-    // setting to the same value
-    if( previousValue === parsedValue ){
-      return
-    }
-
     // removing existing value
     if( this.shouldRemove(parsedValue) ){
       this.removeFromContext(context, this.prefixedName)
